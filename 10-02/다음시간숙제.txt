@@ -1,0 +1,42 @@
+HTML
+
+href : 링크?
+
+<font size="30", color="#5CD1E5", face="궁서">안녕하세요.
+  <a href="https://www.naver.com/">네이버<a> </font>
+<img src
+alt >그림 액박뜰때 텍스트로 대체해줌
+<p>줄바꾸기
+
+
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Doc</title>
+ </head>
+ <body>
+  <font size="30", color="#5CD1E5", face="궁서">안녕하세요.
+ 		 <a href="https://www.naver.com/">네이버<a> </font>
+  <img src="C:\Users\PIRL\Desktop\untitled.png" alt="gdddd"></img>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+데이터베이스 sql crud
+
+데이터베이스 > 데이터베이스를 가져와서 디스플레이하는것
+
+
+최종적으로는 사이트하나만들기!
+
+회사소개,사진게시판 기타 등등 추가해서 자기 만의 사이트를 한번 만들어보기

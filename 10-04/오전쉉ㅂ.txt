@@ -1,0 +1,23 @@
+<기업 정보망??>
+ERP
+ 
+Groupware
+
+
+<자바종류>
+모델1(2000년 대에 씀)
+모델2(MVC=최근에씀)
+*아직까진 model 1을 더많이씀(1보다 2가 무조건 좋은게아니라 1의 장단점도있고 2의 장단점도있음)
+https://codediver.tistory.com/108
+
+
+웹크롤링(인터넷상 정보 추출)
+
+웹개발 system을 만들때 필요한것들....
+
+jdk(자바,html언어),webserver(우리가쓰는건 tomcat,운영),eclipse(웹개발도구),mariadb(데이터베이스),workbench(mariadb환경제공)
+
+
+<workbench>
+
+varchar(데이터크기)=문자열

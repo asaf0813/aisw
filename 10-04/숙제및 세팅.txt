@@ -1,0 +1,35 @@
+tomcat > jdc 추가 > 더블클릭 > path edit > / 으로 바꿔줌
+
+preference > encoding > UTF-8(리눅스(유니코드)에서 한글로 바꿔줌, EUC는 윈도우에서))
+
+servers폴더 >  server.zml > 63번째줄 (    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8"/>
+)
+
+model1폴더 우클릭 > prefe > project facets > 오른쪽 runtimes > 톰켓 체크 > apply
+
+
+%안에 들어가있는 것은 java코드임
+
+
+
+
+java REsources > new > 패키지 > model1.dao , util, vo
+
+mariadb jdbc 다운하고 (자바랑 데이터베이스랑 연결시켜주는 것)
+
+web-inf-lib 에 붙여넣기
+
+
+model1.util > new > 패키지 > class 
+
+
+숙제
+html >> jsp로 바꾸기 전부ㅏㄷ싹다아아아아아아 ㅡㅡ
+
+
+새로운 것 만들기
+jsp db통신  connection 공부하기?!
+request get para
+쿼리문??
+
+주소를 치고(하나의 jsp를 가르킴) > 파일을 호출(jsp파일) > db
