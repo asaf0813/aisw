@@ -1,0 +1,93 @@
+.header a:hover{color:red;}
+.header a{color:blue;}
+
+.header{
+	width:1000px; 
+	height:50px;
+	float:left;
+	font-size: 9pt;
+}
+
+.topnavi_ds{
+	width:100%; 
+	height:5px;
+	background-color:#CC3D3D;
+	float:left;
+}
+.topnavi a:hover{color:green;}
+.topnavi a{color:#000000;}
+
+.topnavi{
+	width:1000px; height:30px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	font-size: 20pt;
+	font-weight: bold;
+	word-spacing:50px;
+}
+
+.divide{
+	width:100%;
+	height:5px;
+	float:left;
+	margin-top: 25px;
+	background-color:#CC3D3D;
+	margin-top:40px;
+}
+
+.body{
+	font-size: 9pt;
+	margin-top:50px;
+	margin-left:20px;
+	width:1000px; 
+	height:500px; 
+	float:left;
+}
+
+.modify_user{
+	font-weight:bold;
+}
+
+
+
+.modify_user table{
+	clear:both; width:800px;    
+	border: 1px solid #CC3D3D;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.modify_user table th {
+	background-color:#FFFFFF;
+	border:1px solid #CC3D3D;
+    color:#0f438a;
+}
+
+.modify_user table td{
+	background-color:#ffffff;
+	border:1px solid #CC3D3D;
+    color:#0f438a;
+    padding-left:10px;
+}
+
+
+/* btn */
+.buttons a, .buttons button{
+
+    display:block;
+    float:left;
+    margin:0 7px 0 0;
+    background-color:#FFFFFF;
+    border:1px solid #CC3D3D;
+    font-size:9pt;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    padding:5px 10px 6px 7px; /* Links */
+}
+
+.buttons a:hover{color:#4786AD;}
+

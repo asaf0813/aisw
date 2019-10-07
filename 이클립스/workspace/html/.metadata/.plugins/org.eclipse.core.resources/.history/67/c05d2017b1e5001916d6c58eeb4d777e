@@ -1,0 +1,51 @@
+.header a:hover{color:red;}
+.header a{color:blue;}
+
+.header{
+	width:1000px; 
+	height:50px;
+	float:left;
+	font-size: 9pt;
+}
+
+.topnavi_ds{
+	width:100%; 
+	height:5px;
+	background-color:#CC3D3D;
+	float:left;
+}
+.topnavi a:hover{color:green;}
+.topnavi a{color:#000000;}
+
+.topnavi{
+	width:1000px; height:30px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	font-size: 20pt;
+	font-weight: bold;
+	word-spacing:50px;
+}
+
+.divide{
+	width:100%;
+	height:5px;
+	float:left;
+	margin-top: 25px;
+	background-color:#CC3D3D;
+	margin-top:40px;
+}
+
+.body{
+	font-size: 14pt;
+	margin-top:50px;
+	margin-left:20px;
+	width:100px;
+	white-space: pre-wrap; 
+	height:500px; 
+	float:left;
+}
+
+
+
+

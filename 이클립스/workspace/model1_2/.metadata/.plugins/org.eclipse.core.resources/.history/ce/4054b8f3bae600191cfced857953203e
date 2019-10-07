@@ -1,0 +1,174 @@
+package model1.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model1.util.DBConnect;
+import model1.vo.Board_edu;
+
+public class Board_eduDAO {
+   public Board_edu getBoardInfo(int boardId) {
+      Board_edu vo = null;
+      
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      ResultSet rs = null;  
+      
+      try {
+           stmt = con.createStatement();  
+           
+         String sql = "   SELECT board_id, title, contents, creater, DATE_FORMAT(create_date, '%Y-%m-%d %p %h시 %i분') AS create_date, DATE_FORMAT(update_date, '%Y-%m-%d %p %h시 %i분') AS update_date, read_count FROM board_edu WHERE board_id = " + boardId;
+
+         System.out.println(sql);
+         
+         rs = stmt.executeQuery(sql);
+         
+         if (rs.next()){
+             vo = new Board_edu();
+             vo.setBoardId(rs.getInt("board_id"));
+             vo.setTitle(rs.getString("title"));
+             vo.setContents(rs.getString("contents"));
+             vo.setCreater(rs.getString("creater"));
+             vo.setCreate_date(rs.getString("create_date"));
+             vo.setRead_count(rs.getInt("read_count"));
+          }
+         
+       } catch (Exception e) {
+          System.out.println("MariaDB Connection Something Problem.(MariaDB 연결에 뭔가 문제가 생긴 것 같다.)");
+          System.out.println(e.getMessage());
+           e.printStackTrace();
+       } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+      
+      return vo;
+   }
+   
+   public ArrayList<Board_edu> getBoardList() {
+      Board_edu vo = null;
+      ArrayList<Board_edu> arr = new ArrayList<Board_edu>();
+       
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      ResultSet rs = null; 
+      
+       try {
+           stmt = con.createStatement();  
+
+           String sql = "   SELECT board_id, title, contents, creater, DATE_FORMAT(create_date, '%Y-%m-%d %p %h시 %i분') AS create_date, DATE_FORMAT(update_date, '%Y-%m-%d %p %h시 %i분') AS update_date, read_count FROM board_edu";
+
+           System.out.println(sql);
+    
+           rs = stmt.executeQuery(sql);
+          
+           while(rs.next()){
+              vo = new Board_edu();   
+              vo.setBoardId(rs.getInt("board_id"));
+              vo.setTitle(rs.getString("title"));
+              vo.setContents(rs.getString("contents"));
+              vo.setCreater(rs.getString("creater"));
+              vo.setCreate_date(rs.getString("create_date"));
+              vo.setRead_count(rs.getInt("read_count"));
+               
+              arr.add(vo);
+           }
+       } catch (Exception e) {
+          System.out.println("MariaDB Connection Something Problem.(MariaDB 연결에 뭔가 문제가 생긴 것 같다.)");
+          System.out.println(e.getMessage());
+           e.printStackTrace();
+       } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+               
+      return arr;
+   }
+
+   public void insertBoard(Board_edu vo) {
+      DBConnect dbCon = new DBConnect();
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;     
+      try {
+         stmt = con.createStatement();
+         String sql = ""
+               + "   INSERT INTO board_edu (board_id, title, contents, creater, create_date, read_count)"
+               + "   VALUE ((SELECT IFNULL(MAX(b.board_id), 0) + 1 FROM board_edu b), '" + vo.getTitle() + "', '" + vo.getContents() + "', '" + vo.getCreater() + "', '" + vo.getCreate_date() + "', NOW(), 0)";
+
+         System.out.println(sql);
+         
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+   
+   public void updateBoard(Board_edu vo) {
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      try {
+         stmt = con.createStatement();
+         String sql = "   UPDATE board_edu SET title = '" + vo.getTitle() + "', contents = '"+ vo.getContents() + "', creater = '" + vo.getCreater() + "', create_date = '" + vo.getCreate_date() + "', update_date = NOW() WHERE board_id = " + vo.getBoardId();
+         System.out.println(sql);
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+   }
+   
+   public void deleteBoard(int boardId) {
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      try {
+         stmt = con.createStatement();
+         
+         String sql = "   DELETE From board_edu WHERE board_id = " + boardId;
+         
+         System.out.println(sql);
+         
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+
+   public void readCountUpdate(int boardId) {
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      try {
+         stmt = con.createStatement();
+                  String sql = "   UPDATE board_edu SET read_count = read_count + 1 WHERE board_id = " + boardId;
+         System.out.println(sql);
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+}

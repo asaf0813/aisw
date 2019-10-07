@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>intro</title>
+		<link href="./intro.css" rel="stylesheet" type="text/css" >
+		<style type="text/css"> 
+		a { text-decoration:none } 
+		</style> 
+	</head>
+	<body>
+
+		<div class="header">
+			<a href="../main.html">		
+			<img width="100%" height="150" src = "http://www.postech.ac.kr/wp-content/themes/postech/images/imgs/signature4.png", alt="" ></a>
+		<div>
+			<p style="margin-top:20px"></p>
+		</div>
+
+		<div class="topnavi_ds">
+			<div class="topnavi">  
+				<a href="../intro/intro.html">학교소개</a> <a href="../board/list.html">게시판</a> <a href="../picture/list.html">사진첩</a> <a href="../member/login.html">로그인</a> <a href="../member/join.html">회원가입</a>
+			</div>
+		</div>
+
+		<div class="divide"/>
+		
+		<img width="100%" height="200" align="left"src = "../img/person.jpg">
+
+
+		<div class="body">
+			<pre>
+안녕하십니까?
+POSTECH은 우리나라가 아직 선진국들의 기술을 빠르게 따라가던 시기, ‘세계 과학기술을 선도할 수 있는 대학이 우리에게도 필요하다’는 정신 아래 설립된 국내 최초의 연구중심대학입니다. 그동안 우리나라 고등교육계에서 끊임없이 변화와 혁신을 주도하는 대학이었으며 교육에서는 소수정예 대학만이 할 수 있는 선진적인 교육제도를 과감하게 도입해 사회가 필요로 하는 인재들을 길러내었고, 연구에서는 탁월한 연구성과로 시대가 필요로 하는 기술 혁신을 이끌어왔습니다.
+그 결과 짧은 역사, 비영어권 국가, 비수도권 소재 대학이라는 불리한 여건에도 불구하고, 단시간 내에 한국은 물론 아시아의 대표적인 대학으로 성장하였습니다. 그러나 최근 대학을 둘러싼 여러 가지 환경은 너무나 어려운 상황입니다. 하지만 이러한 위기는 위험한 고비이자, 곧 기회라 할 수 있으며 그 동안의 발전을 만들어 왔던 ‘함께의 힘’을 통해 얼마든지 극복하고 성장할 수 있다고 확신합니다.
+저는 이를 위해 다음의 사항을 중심으로 추진해 나가고자 합니다.
+
+첫째, 학생이 필요로 하는 교육 혁신
+둘째, 산업체와 미래가 필요로 하는 연구혁신
+셋째, POSTECH의 현재가 필요로 하는 대학 경영 혁신
+
+POSTECH은 교육과 연구를 통해 국가와 인류에 대해 봉사함을 건학이념으로 하고 있습니다. 앞으로도 수월성을
+바탕으로 POSTECH을 ‘세계적인 연구중심대학’으로 성장시켜 대한민국의 미래를 밝히는데 진력을 다하겠습니다.
+
+<b><span style= "font-size:18pt;">POSTECH 총장</b></span>
+			</pre>
+		</div>
+
+	</body>
+</html>

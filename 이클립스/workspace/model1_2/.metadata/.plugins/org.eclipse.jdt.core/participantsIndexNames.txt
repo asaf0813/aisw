@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+D:\JAVA\workspace\model1_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2427664212.index
+\model_edu\src
+D:\JAVA\workspace\model1_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\747204849.index
+\model_edu\src
+D:\JAVA\workspace\model1_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\654768559.index
+\model_edu\src
+D:\JAVA\workspace\model1_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3255728711.index
+\model_edu\src
+D:\JAVA\workspace\model1_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3537951027.index
+\model_edu\src

@@ -1,0 +1,5 @@
+package model1.dao;
+
+public class BoardDAO {
+
+}

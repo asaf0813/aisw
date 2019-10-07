@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<% 
+SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy년MM월dd일 HH시mm분ss초");
+Date time = new Date();
+String time1 = format1.format(time);
+%>
+현재시간출력 : <%time %>
+</body>
+</html>

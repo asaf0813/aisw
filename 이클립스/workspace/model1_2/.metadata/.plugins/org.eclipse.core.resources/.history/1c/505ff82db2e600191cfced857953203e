@@ -1,0 +1,55 @@
+package model1.vo;
+
+public class Board_edu {
+	private int boardId;
+	
+	private String title;
+	
+	private String creater;
+	
+	private String create_date;
+	
+	private int read_count;
+
+	public int getBoardId() {
+		return boardId;
+	}
+
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getCreater() {
+		return creater;
+	}
+
+	public void setCreater(String creater) {
+		this.creater = creater;
+	}
+
+	public String getCreate_date() {
+		return create_date;
+	}
+
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
+	}
+
+	public int getRead_count() {
+		return read_count;
+	}
+
+	public void setRead_count(int read_count) {
+		this.read_count = read_count;
+	}
+
+
+}

@@ -1,0 +1,45 @@
+.header a:hover{color:red;}
+.header a{color:blue;}
+
+.header{
+	width:1000px; 
+	height:50px;
+	float:left;
+	font-size: 9pt;
+}
+
+.topnavi_ds{
+	width:100%; 
+	height:5px;
+	background-color:#CC3D3D;
+	float:left;
+}
+.topnavi a:hover{color:green;}
+.topnavi a{color:#F361DC;}
+
+.topnavi{
+	width:1000px; height:30px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+.divide{
+	width:100%;
+	height:1px;
+	float:left;
+	margin-top: 25px;
+	background-color:gray;
+}
+
+.body{
+	font-size: 9pt;
+	margin-top:50px;
+	margin-left:20px;
+	width:1000px; 
+	height:500px; 
+	float:left;
+}
+
