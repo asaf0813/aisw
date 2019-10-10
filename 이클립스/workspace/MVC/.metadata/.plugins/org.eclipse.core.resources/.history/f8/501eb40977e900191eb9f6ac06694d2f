@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardMapper">
+	<!-- 조회 insert 업데이트 update 삭제 delete 넣기select // resultType(속성명) -->
+	<select id="getBoardList" resultType="Board">
+		SELECT board_id
+		+ title
+		+ contents
+		+ creater
+		+ create_date
+		+ updater
+		+ update_date 
+		+ read_count 
+	FROM 
+		board;
+	</select>
+</mapper>
+       

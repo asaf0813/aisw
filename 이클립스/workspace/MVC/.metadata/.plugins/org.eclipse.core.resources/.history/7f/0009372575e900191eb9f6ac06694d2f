@@ -1,0 +1,24 @@
+package com.edu.mvc.board.dao;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.edu.mvc.board.vo.Board;
+
+
+@Repository
+public class BoardDAO {
+	
+	@Resource(name="eduSqlSession") //@어노테이션임
+	private SqlSession sqlSession; // mybatis를 사용하기 위한 class 선언하는법
+	
+	//Mybatis SQl작업부터해야함
+	public List<Board> getBoardList(){
+		return sqlSession.selectList("boardMapper.getBoardList");
+		
+	}
+}

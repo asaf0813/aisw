@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+		<title>게시판 - 게시물 목록 조회 화면</title><!-- 윈도우 상단에 뜨는 내용입니다. -->
+	</head>
+	<body>
+		<div style="width:1300px; margin:0 auto">
+		    <h1 style="text-align:center">게시물 리스트</h1> 
+		    
+		    <table BORDERCOLOR="#000000" border="1" cellspacing="0" style="width:100%">             
+		        <tr>            
+		            <th width="100">번호</th>
+		            <th width="">제목</th>
+		            <th width="150">작성자</th>
+		            <th width="300">등록일</th>
+		            <th width="100">조회수</th>
+		        </tr>
+
+						<tr>
+				            <td align="center"></td>
+				            <td align="center"><a href="./view.jsp?boardId="></a></td>
+				            <td align="center"></td>
+				            <td align="center"></td>
+				            <td align="center"></td>
+				        </tr>
+
+		    </table>
+		    
+		 	<br/><br/>
+		 	<button style="float:right" onclick="window.location.href='./insert.jsp'">글쓰기</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 
+   Mybatis : 객체지향 언어인 자바의 관계형 데이터 베이스 프로그래밍(jdbc)을 사용하기 쉽게 도와주는 프레임워크
+      1. 데이터 베이스에 질의를 할 수 있도록 SQL문(질의문)에 대한 정의
+      2. SQL문을 수행할 수 있도록 데이터 베이스에 접근(연결), SQL문 질의 등.. DB 연계 동작에 대한 모든 동작을 컨트롤 해줌 (컨트롤에 대한 정의는 필요함) 
+      3. SQL문을 정의해 놓은 문서 : Mapper(SQL 정의 문서 라고 생각하면됨)
+         3-1. xml 문서로 정의가 되어져 있음 => 이유 : 자바소스로 정의한 SQL문 보다 XML로 정의해놓은 SQL문이 훨씬 보기 좋고, 파악하기 쉽다.
+         3-2. mapper의 이름 정의('namespace')
+         3-3. 각 SQL문에 대한 ID('id') 정의, 파라메터('parameterType')에 대한 데이터 형태 정의, 결과값('resultType')에 대한 데이터 형태 정의
+ -->
+   <settings>
+        <!-- http://www.mybatis.org/mybatis-3/ko/configuration.html -->
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25000"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="jdbcTypeForNull" value="VARCHAR"/>
+        <!-- <setting name="callSettersOnNulls" value="true" /> -->
+    </settings>
+    
+    <typeAliases>
+<!--    
+		typeAlias alias="Crawiling" type="com.test.edu.crawling.domain.Crawling"/>
+        <typeAlias alias="Board" type="com.test.edu.board.domain.Board"/>
+        <typeAlias alias="int" type="java.lang.Integer"/>
+ -->
+    </typeAliases>
+    
+</configuration>

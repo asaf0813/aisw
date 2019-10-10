@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://www.springframework.org/schema/jdbc http://www.springframework.org/shcema/jdbc/spring-jdbc.xsd">
+
+   <!-- Root Context: 주로 View 자원 이외에 공통적으로 사용이 가능한 Infra, Log 자원 등을 구성할 때. -->
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   
+    <!-- <context:property-placeholder location="classpath:application.properties"/> -->
+
+    <!-- MariaDB 접속 정보 property는 파라미터들이다.-->
+    <bean id="eduDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+      <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mariadb://localhost:3306/edu"></property>
+        <property name="username" value="edu"/>
+        <property name="password" value="1234"/>
+   </bean>
+    
+    <!-- Mybatis 기본 설정 정보 mapper SQL저장되어있는곳 3번째줄은 메모리에 SQL문을 저장시킨다는 뜻-->
+    <bean id="eduSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="eduDataSource"/>
+        <property name="configLocation" value="classpath:mybatis/config/mybatis_config.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/> <!-- .xml은 다 mapper구나라고 인식하게해줌 -->
+    </bean>
+    
+    <!-- SQL 실행이나 트랜잭션 관리 (Mybatis의 핵심) mybastis를 이용할때 필요한 class를 bean에 올려주는것-->
+    <bean id="eduSqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="eduSqlSessionFactory"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,63 @@
+package com.edu.mvc.board.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.edu.mvc.board.service.BoardService;
+import com.edu.mvc.board.vo.Board;
+
+//list화면으로 가는 목록 정의하기
+@Controller
+public class BoardController {
+	
+	@Autowired //boardservice 객체를 사용할수 있게 연결해줌
+	private BoardService boardService;
+	
+	//게시물 목록 조회 화면
+	@RequestMapping(value = "/list") 	
+	public String list(Model model) {
+		List<Board> boardList = boardService.getBoardList();
+		model.addAttribute("list", boardList);
+		return "list";
+	}
+	
+	//게시물 목록 등록 화면
+	@RequestMapping(value = "/insert") 
+	public String insert() {
+		return "insert";
+	}
+	
+	//게시물 목록 등록 화면
+	@RequestMapping(value = "/insert_excute") 
+	public String insert_excute(String title, string creater, string contents) { // (Board board)
+		
+		return "insert";
+	}
+	
+	//게시물 목록 수정 화면
+	@RequestMapping(value = "/update") 
+	public String update() {
+		return "update";
+	}
+	
+	//게시물 목록 상세조회화면
+	@RequestMapping(value = "/view") 
+	public String view() {
+		return "view";
+	}
+}
+	
+	//http://localhost:8080/list가 URL로 호출이 되었을때 views 폴더 하위에 있는"list.jsp"를 보여줌
+//	@RequestMapping(value = "/list") //URL을 list로 정의했기때분에 확장자명을 안붙여주어도 괜찮음
+//	public String list() {
+//		List<Board> list = boardService.getBoardList();
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(i + ". title : " + list.get(i).getTitle());
+//		}
+//		return "list";
+//	}
+

@@ -1,0 +1,16 @@
+package com.edu.mvc.board.service;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Service;
+
+import com.edu.mvc.board.vo.Board;
+
+@Service // 긴 로직을 넣을때(비즈니스 로직) 실제로 필요한 로직(컨트롤러는 로직이 없고 역할만 부여해준다 로직은 서비스에 넣어둔다)
+public class BoardService {
+	
+	public ArrayList<Board> getBoardList(){
+		return null;
+	}
+
+}

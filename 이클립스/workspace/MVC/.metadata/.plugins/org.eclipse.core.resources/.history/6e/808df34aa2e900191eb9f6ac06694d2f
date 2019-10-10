@@ -1,0 +1,31 @@
+package com.edu.mvc.board.dao;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.edu.mvc.board.vo.Board;
+
+//DB에 접근하고 쿼리에 접근해서 수정 등록 삭제 SQL문들을 처리하는 작업을 하는것
+
+@Repository
+public class BoardDAO {
+	
+	@Resource(name="eduSqlSession") //@어노테이션임
+	private SqlSession sqlSession; // mybatis를 사용하기 위한 class 선언하는법
+	
+	public List<Board> getBoardList(){
+		List<Board> list = sqlSession.selectList("boardMapper.getBoardList");
+		return list;
+		// 위에것이랑 같은 것 return sqlSession.selectList("boardMapper.getBoardList");	
+	}
+	
+	//게시물 DB 등록서비스 로직
+	public void insert_excute(Board vo) {
+		sqlSession.insert("boardMapper.insertBoard",vo);
+	}
+	
+}

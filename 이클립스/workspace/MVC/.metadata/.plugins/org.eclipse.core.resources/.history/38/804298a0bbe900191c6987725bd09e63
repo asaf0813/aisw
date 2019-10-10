@@ -1,0 +1,60 @@
+package com.edu.mvc.board.dao;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.edu.mvc.board.vo.Board;
+
+//DB에 접근하고 쿼리에 접근해서 수정 등록 삭제 SQL문들을 처리하는 작업을 하는것
+
+@Repository
+public class BoardDAO {
+	
+	@Resource(name="eduSqlSession") //@어노테이션임
+	private SqlSession sqlSession; // mybatis를 사용하기 위한 class 선언하는법
+	
+	   /*
+	    * 게시물 목록을 조회할 수 있도록
+	    * Mapper에 정의 된 '게시물 목록 조회' SQL을 실행함
+	    */
+	   public List<Board> getBoardList() throws Exception {
+	      return sqlSession.selectList("boardMapper.getBoardList");
+	   }
+	   
+	   /*
+	    * 게시물을 등록할 수 있도록
+	    * Mapper에 정의 된 '게시물 등록' SQL을 실행함
+	    */
+	   public void insert_excute(Board vo) {
+	      sqlSession.insert("boardMapper.insertBoard", vo);
+	   }
+	   
+	   /*
+	    * 게시물 정보를 조회할 수 있도록
+	    * Mapper에 정의 된 '게시물 정보 조회' SQL을 실행함
+	    */
+	   public Board getBoardInfo(int boardId) throws Exception {
+	      return sqlSession.selectOne("boardMapper.getBoardInfo", boardId);
+	   }
+	   
+	   /*
+	    * 게시물을 수정할 수 있도록
+	    * Mapper에 정의 된 '게시물 수정' SQL을 실행함
+	    */
+	   public void update_excute(Board board) throws Exception {
+	      sqlSession.update("boardMapper.updateBoard", board);
+	   }
+	   
+	   /*
+	    * 게시물을 삭제할 수 있도록
+	    * Mapper에 정의 된 '게시물 삭제' SQL을 실행함
+	    */
+	   public void delete_excute(Board boardId) throws Exception {
+	      sqlSession.delete("boardMapper.deleteBoard", boardId);
+	   }
+	
+}
