@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ page import="model1.vo.Board" %>  
+<%@ page import="model1.dao.BoardDAO" %>
+<%
+	//현재 페이지로 요청한 title, contents, updater
+   String title = request.getParameter("title");
+   String contents = request.getParameter("contents");
+   String creater = request.getParameter("updater");
+
+
+   //게시판 Object(객체) 생성
+   Board vo = new Board();
+   vo.setTitle(title);
+   vo.setContents(contents);
+   vo.setCreater(creater);
+
+
+
+   //게시판의 DataAccessObject(DAO) 객체 생성
+   BoardDAO dao = new BoardDAO();
+   //게시물 수정
+   dao.updateBoard(vo);
+   
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>등록수행</title>
+</head>
+<body>
+	<script>
+		alert("수정완료")  // 경고창 뜨고 확인버튼 누르면 페이지이동
+		window.location.href = "./list.jsp";
+	</script>
+</body>
+</html>

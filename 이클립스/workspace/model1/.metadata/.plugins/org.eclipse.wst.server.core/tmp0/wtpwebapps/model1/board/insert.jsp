@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>insert</title>
+		<link href="insert.css" rel="stylesheet" type="text/css" >
+		
+		<script language="javascript">
+			function insert() {
+				if(document.frm.title.value == "") {
+					alert("제목을 입력해주세요.");
+					document.frm.title.focus();
+					return;
+				} else if(document.frm.name.value == "") {
+					alert("이름을 입력해주세요.");
+					document.frm.name.focus();
+					return;
+				} else if(document.frm.content.value == "") {
+					alert("내용을 입력해주세요.");
+					document.frm.content.focus();
+					return;
+				} else {
+					if(confirm("글을 등록하시겠습니까?")){
+						document.frm.submit();
+					}
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+
+		<div class="header">
+			<a href="../main.jsp">로고</a>
+		</div>
+
+		<div class="topnavi_ds">
+			<div class="topnavi">  
+				<a href="../intro/intro.jsp">회사소개</a> |	
+				<a href="../board/list.jsp">게시판</a> | 
+				<a href="../member/login.jsp">로그인</a> |
+				 <a href="../member/join.jsp">회원가입</a>
+			</div>
+		</div>
+
+		<div class="divide"/>
+
+		<div class="body">
+			<form name="frm" action="insert_ok.jsp">
+				<div class="modify_user">
+					<table>
+						<tr> 
+							<th width="15%" height="23" nowrap >제목*</th>
+							<td width="85%"><input type="text" name="title" style="width:600px;"/></td>
+						</tr>
+						<tr>
+							<th width="15%" height="23" nowrap >등록자</th>
+							<td width="85%"><input type="text" name="name" style="width:600px;"/></td>
+						</tr>    
+						<tr> 
+							<th height="23">내용*</th>
+							<td width="85%">
+								<textarea id="exContents" name="content" title="내용" class="textarea" cols="75" rows="20"  style="width:99%;"></textarea>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<div class="buttons">         
+						<a href="javascript:insert();">등록</a> 
+						<a href="./list.jsp">취소</a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</body>
+</html>

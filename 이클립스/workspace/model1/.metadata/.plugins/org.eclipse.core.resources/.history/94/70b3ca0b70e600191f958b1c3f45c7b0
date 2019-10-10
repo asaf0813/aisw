@@ -1,0 +1,86 @@
+package model1.vo;
+
+public class Board {
+	
+	private int boardId;
+	
+	private string title;
+	
+	private string contents;
+	
+	private string creater;
+	
+	private string createDate;
+	
+	private string updater;
+	
+	private string updateDate;
+	
+	private int readCount;
+
+	public int getBoardId() {
+		return boardId;
+	}
+
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
+
+	public string getTitle() {
+		return title;
+	}
+
+	public void setTitle(string title) {
+		this.title = title;
+	}
+
+	public string getContents() {
+		return contents;
+	}
+
+	public void setContents(string contents) {
+		this.contents = contents;
+	}
+
+	public string getCreater() {
+		return creater;
+	}
+
+	public void setCreater(string creater) {
+		this.creater = creater;
+	}
+
+	public string getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(string createDate) {
+		this.createDate = createDate;
+	}
+
+	public string getUpdater() {
+		return updater;
+	}
+
+	public void setUpdater(string updater) {
+		this.updater = updater;
+	}
+
+	public string getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(string updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+	
+	
+}

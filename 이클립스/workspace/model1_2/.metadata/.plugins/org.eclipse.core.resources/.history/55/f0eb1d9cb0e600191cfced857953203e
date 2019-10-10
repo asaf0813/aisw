@@ -1,0 +1,213 @@
+package model1.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model1.util.DBConnect;
+import model1.vo.Board;
+
+public class BoardDAO {
+   public Board getBoardInfo(int boardId) {
+      Board vo = null;
+      
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      ResultSet rs = null;  
+      
+      try {
+           stmt = con.createStatement();  
+           
+         String sql = "   SELECT board_id, title, contents, creater, DATE_FORMAT(create_date, '%Y-%m-%d %p %h시 %i분') AS create_date, updater, DATE_FORMAT(update_date, '%Y-%m-%d %p %h시 %i분') AS update_date, read_count FROM board WHERE board_id = " + boardId;
+
+         System.out.println(sql);
+         
+         rs = stmt.executeQuery(sql);
+         
+         if (rs.next()){
+             vo = new Board();
+             vo.setBoardId(rs.getInt("board_id"));
+             vo.setTitle(rs.getString("title"));
+             vo.setContents(rs.getString("contents"));
+             vo.setCreater(rs.getString("creater"));
+             vo.setCreate_date(rs.getString("create_date"));
+             vo.setUpdater(rs.getString("updater"));
+             vo.setUpdateDate(rs.getString("update_date"));
+             vo.setReadCount(rs.getInt("read_count"));
+          }
+         
+       } catch (Exception e) {
+          System.out.println("MariaDB Connection Something Problem.(MariaDB 연결에 뭔가 문제가 생긴 것 같다.)");
+          System.out.println(e.getMessage());
+           e.printStackTrace();
+       } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+      
+      return vo;
+   }
+   
+   public ArrayList<Board> getBoardList() {
+      Board vo = null;
+      ArrayList<Board> arr = new ArrayList<Board>();
+       
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      ResultSet rs = null; 
+      
+       try {
+           stmt = con.createStatement();  
+
+           String sql = "   SELECT board_id, title, contents, creater, DATE_FORMAT(create_date, '%Y-%m-%d %p %h시 %i분') AS create_date, updater, DATE_FORMAT(update_date, '%Y-%m-%d %p %h시 %i분') AS update_date, read_count FROM board";
+
+           System.out.println(sql);
+    
+           rs = stmt.executeQuery(sql);
+          
+           while(rs.next()){
+              vo = new Board();   
+              vo.setBoardId(rs.getInt("board_id"));
+              vo.setTitle(rs.getString("title"));
+              vo.setCreater(rs.getString("creater"));
+              vo.setCreate_date(rs.getString("create_date"));
+              vo.setRead_count(rs.getInt("read_count"));
+              
+              arr.add(vo);
+           }
+       } catch (Exception e) {
+          System.out.println("MariaDB Connection Something Problem.(MariaDB 연결에 뭔가 문제가 생긴 것 같다.)");
+          System.out.println(e.getMessage());
+           e.printStackTrace();
+       } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+               
+      return arr;
+   }
+
+   public void insertBoard(Board vo) {
+      DBConnect dbCon = new DBConnect();
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;     
+      try {
+         stmt = con.createStatement();
+         String sql = ""
+               + "   INSERT INTO board (board_id, title, contents, creater, create_date, read_count)"
+               + "   VALUE ((SELECT IFNULL(MAX(b.board_id), 0) + 1 FROM board b), '" + vo.getTitle() + "', '" + vo.getCreater() + "', '" + vo.getCreate_date() + "', NOW(), 0)";
+
+         System.out.println(sql);
+         
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+   
+   public void updateBoard(Board vo) {
+      DBConnect dbCon = new DBConnect();
+      
+      Connection con = dbCon.getConnection();
+      Statement stmt = null;
+      try {
+         stmt = con.createStatement();
+         String sql = "   UPDATE board SET title = '" + vo.getTitle() + "', creater = '" + vo.getCreater() + "', create_date = '" + vo.getCreate_date() + "', update_date = NOW() WHERE board_id = " + vo.getBoardId();
+         System.out.println(sql);
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+   }
+   
+   //게시물 삭제
+   public void deleteBoard(int boardId) {
+      //데이터 베이스 연결 Class 객체 생성
+      DBConnect dbCon = new DBConnect();
+      
+      //데이터 베이스와 연결 및 관리 해주는 객체
+      Connection con = dbCon.getConnection();
+      //SQL문 실행을 도와주는 객체
+      Statement stmt = null;
+      try {
+         //SQL문 실행을 도와주는, 객체를 생성하는 메서드 호출 
+         stmt = con.createStatement();
+         
+         //SQL문 작성
+         String sql = "   DELETE FROM board WHERE board_id = " + boardId;
+         /*
+         String sql = ""
+               + "   DELETE"
+               + "   FROM"
+               + "      board"
+               + "   WHERE"
+               + "      board_id = " + boardId;
+         */
+         
+         System.out.println(sql);
+         
+         //SQL문 실행
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      } finally {
+          //데이터 베이스 연결 종료하기
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+
+   //조회수 업데이터
+   public void readCountUpdate(int boardId) {
+      //데이터 베이스 연결 Class 객체 생성
+      DBConnect dbCon = new DBConnect();
+      
+      //데이터 베이스와 연결 및 관리 해주는 객체
+      Connection con = dbCon.getConnection();
+      //SQL문 실행을 도와주는 객체
+      Statement stmt = null;
+      try {
+         //SQL문 실행을 도와주는, 객체를 생성하는 메서드 호출 
+         stmt = con.createStatement();
+         
+         //SQL문 작성
+         String sql = "   UPDATE board SET read_count = read_count + 1 WHERE board_id = " + boardId;
+         /*
+         String sql = ""
+               + "   UPDATE"
+               + "      board"
+               + "   SET"
+               + "      read_count = read_count + 1"
+               + "   WHERE"
+               + "      board_id = " + boardId;
+         */
+         System.out.println(sql);
+         
+         //SQL문 실행
+         stmt.executeQuery(sql);
+      } catch (SQLException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      } finally {
+          //데이터 베이스 연결 종료하기
+          if (con != null) {
+             dbCon.disposeConn(con);
+          }
+       }
+   }
+}

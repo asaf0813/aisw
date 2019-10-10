@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<%@ page import="model1.vo.Board_edu" %>  
+<%@ page import="model1.dao.Board_eduDAO" %>  
+<%@ page import="java.util.ArrayList" %>  
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>bbs</title>
+		<link href="./list.css" rel="stylesheet" type="text/css" >
+		<title>게시판 - 목록 조회 화면</title>
+	</head>
+	<body>
+		<h1>게시판</h1>
+		<div class="header">
+			<a href="../main.jsp">로고</a>
+		</div>
+
+		<div class="topnavi_ds">
+			<div class="topnavi">  
+				<a href="../intro/intro.jsp">회사소개</a> |	
+				<a href="./list.jsp">게시판</a> | 
+				<a href="../member/login.jsp">로그인</a> |
+				 <a href="../member/join.jsp">회원가입</a>
+			</div>
+		</div>
+
+		<div class="divide"/>
+
+		<div class="body">
+
+			<div class="default_tablestyle">
+				<table>
+					<tr>
+						<th width="100">번호</th>
+						<th width="">제목</th>
+						<th width="150">작성자</th>
+						<th width="300">작성일</th>
+						<th width="100">조회수</th>
+					</tr>
+					
+		<%
+            //게시판의 DataAccessObject(DAO) 객체 생성
+            Board_eduDAO dao = new Board_eduDAO();
+            //게시판 Object(객체) 선언
+            Board_edu vo = null;
+            //게시판의 DataAccessObject(DAO)에 정의된 'getBoardList()' 메서드를 통해 => 게시물 정보 조회후, 받아오기
+            ArrayList<Board_edu> list = dao.getBoardList();
+            
+            for (int i=0; i < list.size(); i++) {  //초기값을 설정해주고 이 list의 행수 만큼 반복해서 중괄호 안에 있는 내용들이 반복들이 되서 소스가 나온다, 첫번째 array에 있는 것을 찾고 뽑아낸다 행수만큼
+               vo = list.get(i);
+         %>
+               <tr>
+                     <td align="center"><%= vo.getBoardId() %></td>
+                     <td align="center"><a href="./view.jsp?boardId=<%= vo.getBoardId() %>"><%= vo.getTitle() %></a></td>
+                     <td align="center"><%= vo.getCreater() %></td>
+                     <td align="center"><%= vo.getCreate_date() %></td>
+                     <td align="center"><%= vo.getRead_count() %></td>
+               </tr>
+         <%
+            }
+         %>
+				
+				
+				</table>
+
+				<div class="buttons">
+					<a href="./insert.jsp">등록</a> 
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

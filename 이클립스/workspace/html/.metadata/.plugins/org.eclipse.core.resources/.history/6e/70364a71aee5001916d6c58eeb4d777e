@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>join</title>
+		<link href="./join.css" rel="stylesheet" type="text/css" >
+		<style type="text/css"> 
+		a { text-decoration:none } 
+		</style> 
+
+
+		<script>
+			function send(){
+				var id_view = document.frm.id_view.value;
+				var password = document.frm.password.value;
+				var password2 = document.frm.password2.value;
+				var email = document.frm.emailAdres.value;
+				var tel1 = document.frm.Phone1.value;
+				var tel2 = document.frm.Phone2.value;
+				var tel3 = document.frm.Phone3.value;
+				var tel3 = document.frm.Phone3.value;
+				var name = document.frm.name.value;
+
+				if(id_view==""){
+					alert("아이디를 입력해주세요");
+					document.frm.id_view.focus();
+					return;
+				} else if(password=="") {
+					alert("비밀번호를 입력해주세요");
+					document.frm.password.focus();
+					return;
+				} else if(password2=="") {
+					alert("비밀번호를 확인해주세요");
+					document.frm.password.focus();
+					return;
+				} else if(name=="") {
+					alert("이름을 입력해주세요.");
+					document.frm.password.focus();
+					return;
+				} else {
+					if(confirm("가입하시겠습니까?")) {    			 
+						document.frm.submit();
+					}
+				}
+
+				var regExp = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/i;
+
+				if(!regExp.test(email)){
+					alert("이메일 형식이 일치하지 않습니다.");
+					document.frm.emailAdres.focus();
+					return;
+				}
+
+				var tel1Chk = /^0(2|1[01679])$/;
+				var tel2Chk = /^[0-9]{3,}$/;
+				var tel3Chk = /^[0-9]{4}$/;
+
+				if (tel1.value != '') {
+					if (!tel1Chk.test(tel1)){
+						alert("번호형식이 일치하지 않습니다.");
+						document.frm.Phone1.focus();
+						return;
+					}
+					if (!tel2Chk.test(tel2)){
+						alert("번호형식이 일치하지 않습니다.");
+						document.frm.Phone2.focus();
+						return;
+					}
+					if (!tel3Chk.test(tel3)){
+						alert("번호형식이 일치하지 않습니다.");
+						document.frm.Phone3.focus();
+						return;
+					}
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<a href="../main.html">		
+			<img width="100%" height="150" src = "http://www.postech.ac.kr/wp-content/themes/postech/images/imgs/signature4.png", alt="" ></a>
+		<div>
+			<p style="margin-top:20px"></p>
+		</div>
+
+		<div class="topnavi_ds">
+			<div class="topnavi">  
+				<a href="../intro/intro.html">회사소개</a> <a href="../board/list.html">게시판</a> <a href="../member/login.html">로그인</a> <a href="../member/join.html">회원가입</a>
+			</div>
+		</div>
+
+
+		<div class="divide"/>
+
+		<div class="body">
+
+			<form name="frm">
+				<div class="modify_user">
+					<table>
+						<tr><td colspan="4" height="30">기본정보</td></tr>
+						<tr>
+							<th>아이디</th>
+							<td colspan="3">
+							<input type="text" size="20" maxlength="20" name="id_view" >
+							</td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input type="password" path="password" name="password" id="password" title="비밀번호" size="20" maxlength="20" /></td>
+							<th>비밀번호 확인</th>
+							<td><input name="password2" id="password2" title="비밀번호확인" type="password" size="20" maxlength="20" /></td>
+						</tr>
+						<tr>
+							<th>이름</th>
+							<td><input name="userNm" id="userNm" title="사용자이름" type="text" size="20" value="" maxlength="60" /></td>
+							<th>성별</th>
+							<td>
+								<input type="radio" id="gen" name="gen" title="성별" value="남자">남자
+								&nbsp;&nbsp;<input type="radio" id="gen" name="gen" title="성별" value="여자">여자
+							</td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td><input name="emailAdres" id="emailAdres" title="이메일주소" cssClass="txaIpt" size="30" maxlength="50" /></td>
+							<th>연락처</th>
+							<td>
+								<input name="Phone1" id="Phone1" title="번호1" cssClass="txaIpt" size="4" maxlength="3" /> -
+								<input name="Phone2" id="Phone2" title="번호2" cssClass="txaIpt" size="5" maxlength="4" /> -
+								<input name="Phone3" id="Phone3" title="번호3" cssClass="txaIpt" size="5" maxlength="4" />
+								<input type="hidden" name="memberPhone" id="memberPhone" title="핸드폰번호" size="20" maxlength="15" />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table>
+						<tr><td colspan="6" height="30">추가정보</td></tr>
+						<tr>
+							<th>소속</th>
+							<td colspan="1"><input name="orgnz" id="orgnz" title="소속" type="text" size="20" value="" maxlength="60" /></td>
+							<th>직위</th>
+							<td><input name="position" id="position" title="직위" type="text" size="20" value="" maxlength="60" /></td>
+						</tr>
+						<tr>
+							<th>최종학력</th>
+							<td colspan="3">
+								<select name="spec" title="최종학력">
+									<option value="">학력선택</option>
+									<option value="초등학교 재학">초등학교 재학</option>
+									<option value="초등학교 졸업">초등학교 졸업</option>
+									<option value="중학교 재학">중학교 재학</option>
+									<option value="중학교 졸업">중학교 졸업</option>
+									<option value="고등학교 재학">고등학교 재학</option>
+									<option value="고등학교 졸업">고등학교 졸업</option>
+									<option value="대학교 재학">대학교 재학</option>
+									<option value="대학교 졸업">대학교 졸업</option>
+									<option value="대학원 재학">대학원 재학</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>종교</th>
+							<td><input name="religion" id="religion" title="종교" type="text" size="20" value="" maxlength="60" /></td>
+							<th>결혼여부</th>
+							<td>
+								&nbsp;&nbsp;<input type="radio" name="marry" value="미혼">미혼 
+								&nbsp;&nbsp;<input type="radio" name="marry" value="기혼">기혼
+							</td>
+						</tr>
+						<tr>
+							<th>주소</th>
+							<td colspan="3">
+								<input type="text" name="zipcode" size="60">
+							</td>
+						</tr>
+						<tr>
+							<th>상세주소</th>
+							<td colspan="3">
+								<input type="text" class="addr" name="addr_remain" size="60">
+							</td>
+						</tr>
+					</table>
+
+					<div class="buttons" style="padding-top:10px;padding-bottom:30px; float:left;">
+						<a href="#LINK" onclick="javascript:send(); return false;">회원가입</a> 
+						<a href="#LINK">취소</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
