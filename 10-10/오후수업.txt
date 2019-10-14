@@ -1,0 +1,9 @@
+<html>
+	<head>               HTML안의 head, body로 나누고 바디안에 있는 것들과 헤드안에 있는것들을 트리형태로 가지고있는 정보 이런것들을 document object model 라고 부른다. (javascript에서 document.~~ 이게 다 저기서 가져오는것들임)
+	</haed>
+	<body>
+		<div>
+		</div>
+	</body>
+</html>
+

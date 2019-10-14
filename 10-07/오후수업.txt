@@ -1,0 +1,15 @@
+
+**spring의 특징
+
+maven이라고 해서 library를 관리해준다.(mariadb maven 들어가서 원하는 버전을 클릭하도 복붙)
+
+
+create project 할때 들어가서 spring project 후 밑에도 springporject 선택후 파일경로 com.edu.mvc 3단계로 설정후 피니쉬
+
+나머진 model1할때랑 똑같음 utf-8 바꿔주고(서버클릭하고 /로바꿔주는거랑 utf-8해주는것들)
+MVC>src>main>webapp>WEB-INF>web.xml >> 가독성이 편하다.(자바 이외에 spring project 파일에 설정할때 class파일보단 xml형태로 설정파일을 해주는게 좋다
+	
+	root-context.xml>>시스템에서 사용 또는 설정할것들이 들어있는 파일, 글로벌적으로 사용할 것들이 정의되어있음
+	dispatcher(servlet-context)-어떻게 화면을 보여줄거냐에 대한 설정이 기술되어있음 
+	servlet에 대한 설정이 가장 중요 (위에건 없어도댐)
+	url을 통해 요청을 받고 jsp파일을 어떻게 해석하고 html로 사용자에게 어떻게 보여줄지 있는 객체(정보, 기술)

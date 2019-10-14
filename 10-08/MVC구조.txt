@@ -1,0 +1,18 @@
+톰켓서버      << 지정된 URL을 입력해줌 list
+
+MVC
+
+web.xml 읽고
+	servlet-context.xml (해석하고 view해주는게 담겨있음)
+	root-context.xml 을읽고
+		11 >> DB, myabits, SQL 탬플릿 class
+
+메모리의
+스프링 영역에 11이 올라옴 
+com.edu.mvc부터 어노테이션을 확인하고 
+	보드컨트롤러, 보드서비스, 보드DAO가 올라감
+
+		컨트롤러에서 list URL을 받고 호출이됨 > 보드서비스로감> autowired를 통해 getboardlist 매소드를 호출을함 > DAO에서 boaradlist호출 및 eduSqlSession을 참조함> root-context에 있는 sql을 불러옴 > 그러면 다시 board DAO에서 불러온sql문에 boardmapper.getboardlist를 집어넣음
+		> 그럼 보드 매퍼에 있는 것들이 호출이됨 그것을 리스트로 받음 > 이걸 다시  보드서비스로 보내줌 > 그리고 그 받은걸 보드컨트롤러로 옮김 > 반복문을 통해 콘솔창에 보여줌
+ 
+
